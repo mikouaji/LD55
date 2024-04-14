@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://mawv7tscprxy"]
+
+[ext_resource type="Texture2D" uid="uid://otg0uys8x0m1" path="res://Inputs/1.png" id="1_pjtqm"]
+[ext_resource type="Script" path="res://Inputs/itemInput.gd" id="1_pwecr"]
+[ext_resource type="Texture2D" uid="uid://bxjvj4hg4vbx7" path="res://Inputs/2.png" id="2_f0nnr"]
+[ext_resource type="Texture2D" uid="uid://dio851hf25p8s" path="res://Items/active.png" id="2_wciwr"]
+[ext_resource type="Texture2D" uid="uid://bh2hltrvfxtt1" path="res://Inputs/3.png" id="3_u0aww"]
+[ext_resource type="Texture2D" uid="uid://d00k835a1l5bo" path="res://Inputs/4.png" id="4_f875l"]
+[ext_resource type="Texture2D" uid="uid://byd66itw17xed" path="res://Inputs/5.png" id="5_0xwk1"]
+[ext_resource type="Texture2D" uid="uid://8ptkdv1p3c7w" path="res://Inputs/A.png" id="6_hm4l1"]
+[ext_resource type="Texture2D" uid="uid://dg5p5kl44esj7" path="res://Inputs/B.png" id="7_8do3u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w7xmd"]
+radius = 28.0
+
+[node name="ItemInput" type="Area2D"]
+z_index = -1
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_pwecr")
+
+[node name="ACTIVE" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("2_wciwr")
+
+[node name="SI" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_pjtqm")
+
+[node name="SII" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_f0nnr")
+
+[node name="SIII" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_u0aww")
+
+[node name="SIV" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_f875l")
+
+[node name="SV" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_0xwk1")
+
+[node name="SA" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("6_hm4l1")
+
+[node name="SB" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("7_8do3u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w7xmd")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

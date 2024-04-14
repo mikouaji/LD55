@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://by73u33g555di"]
+
+[ext_resource type="Script" path="res://Book/Book.gd" id="1_23a8c"]
+[ext_resource type="Texture2D" uid="uid://b8n2xoeekbg23" path="res://Book/arrow.png" id="2_3lb16"]
+[ext_resource type="Texture2D" uid="uid://dio851hf25p8s" path="res://Items/active.png" id="2_7mjkx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhd7w"]
+size = Vector2(32, 60)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ht12a"]
+bg_color = Color(0.490196, 0.490196, 0.490196, 1)
+
+[node name="Book" type="Area2D"]
+position = Vector2(215, 74)
+script = ExtResource("1_23a8c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jhd7w")
+
+[node name="S1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -46)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_7mjkx")
+
+[node name="S2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -46)
+rotation = 1.5708
+texture = ExtResource("2_3lb16")
+
+[node name="GUI" type="Panel" parent="."]
+visible = false
+z_index = 2
+custom_minimum_size = Vector2(720, 440)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -215.0
+offset_top = -74.0
+offset_right = 505.0
+offset_bottom = 366.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ht12a")
+metadata/_edit_group_ = true
+
+[node name="S" type="HSplitContainer" parent="GUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 360
+
+[node name="Mixes" type="VBoxContainer" parent="GUI/S"]
+layout_mode = 2
+alignment = 1
+
+[node name="Demons" type="VBoxContainer" parent="GUI/S"]
+layout_mode = 2
+alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

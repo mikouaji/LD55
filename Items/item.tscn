@@ -1,0 +1,120 @@
+[gd_scene load_steps=24 format=3 uid="uid://chk6d3vetlpu1"]
+
+[ext_resource type="Script" path="res://Items/item.gd" id="1_kbq13"]
+[ext_resource type="Texture2D" uid="uid://dio851hf25p8s" path="res://Items/active.png" id="2_5hxyf"]
+[ext_resource type="Texture2D" uid="uid://coh6fuq1wdf33" path="res://Items/dust-blue.png" id="2_ct2ru"]
+[ext_resource type="Texture2D" uid="uid://yk4mjwnjdeo3" path="res://Items/dust-green.png" id="3_ggrp4"]
+[ext_resource type="Texture2D" uid="uid://c5fua8xdiwvlx" path="res://Items/dust-purple.png" id="4_d1nys"]
+[ext_resource type="Texture2D" uid="uid://jc52cp8redhd" path="res://Items/egg-blue.png" id="5_12gud"]
+[ext_resource type="Texture2D" uid="uid://k4uv8hpy4lih" path="res://Items/egg-yellow.png" id="6_q2lpv"]
+[ext_resource type="Texture2D" uid="uid://1ffd7e0i7265" path="res://Items/eye-green.png" id="7_vde81"]
+[ext_resource type="Texture2D" uid="uid://dklrrodgrbax" path="res://Items/eye-red.png" id="8_oh4wy"]
+[ext_resource type="Texture2D" uid="uid://dm3cas8hopo3j" path="res://Items/flask-blue.png" id="9_7i5qi"]
+[ext_resource type="Texture2D" uid="uid://dh4sovpyp4adw" path="res://Items/flask-green.png" id="10_123yd"]
+[ext_resource type="Texture2D" uid="uid://je01gt22j5j1" path="res://Items/flask-purple.png" id="11_p7hjk"]
+[ext_resource type="Texture2D" uid="uid://blkfhun0j76x0" path="res://Items/flask-red.png" id="12_dvqkm"]
+[ext_resource type="Texture2D" uid="uid://c1gl8g7j6pxfe" path="res://Items/flask-yellow.png" id="13_5vtkh"]
+[ext_resource type="Texture2D" uid="uid://cqs28isvw4s3i" path="res://Items/leaf-blue.png" id="14_6ofln"]
+[ext_resource type="Texture2D" uid="uid://dfwvaa5clqwla" path="res://Items/leaf-green.png" id="15_jxog0"]
+[ext_resource type="Texture2D" uid="uid://8k8fdxr0rxxk" path="res://Items/leaf-yellow.png" id="16_wjkt7"]
+[ext_resource type="Texture2D" uid="uid://ngpply0yuy5" path="res://Items/lizard.png" id="17_hjhil"]
+[ext_resource type="Texture2D" uid="uid://dudqifsrdp8sx" path="res://Items/muschroom.png" id="18_4mgkc"]
+[ext_resource type="Texture2D" uid="uid://bm0ovxfa10tnn" path="res://Items/muschroom-blue.png" id="19_3y7vi"]
+[ext_resource type="Texture2D" uid="uid://7jsvh60fi25u" path="res://Items/skull.png" id="20_cx5go"]
+[ext_resource type="Texture2D" uid="uid://idb6kj8ocnhw" path="res://Items/spider.png" id="21_ntcfy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xsqur"]
+radius = 12.0
+
+[node name="Item" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_kbq13")
+
+[node name="Active" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_5hxyf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.2, 0.2)
+shape = SubResource("CircleShape2D_xsqur")
+
+[node name="DustBlue" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_ct2ru")
+
+[node name="DustGreen" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_ggrp4")
+
+[node name="DustPurple" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_d1nys")
+
+[node name="EggBlue" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_12gud")
+
+[node name="EggYellow" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("6_q2lpv")
+
+[node name="EyeGreen" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("7_vde81")
+
+[node name="EyeRed" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("8_oh4wy")
+
+[node name="FlaskBlue" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("9_7i5qi")
+
+[node name="FlaskGreen" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("10_123yd")
+
+[node name="FlaskPurple" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("11_p7hjk")
+
+[node name="FlaskRed" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("12_dvqkm")
+
+[node name="FlaskYellow" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("13_5vtkh")
+
+[node name="LeafBlue" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("14_6ofln")
+
+[node name="LeafGreen" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("15_jxog0")
+
+[node name="LeafYellow" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("16_wjkt7")
+
+[node name="Lizard" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("17_hjhil")
+
+[node name="Mushroom" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("18_4mgkc")
+
+[node name="MushroomBlue" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("19_3y7vi")
+
+[node name="Skull" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("20_cx5go")
+
+[node name="Spider" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("21_ntcfy")

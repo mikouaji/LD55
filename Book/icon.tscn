@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://lbsegcu0t2iy"]
+
+[ext_resource type="Texture2D" uid="uid://bgskgy3qwnu53" path="res://Book/unknown.png" id="1_4fwbh"]
+[ext_resource type="Script" path="res://Book/icon.gd" id="1_rmb4a"]
+
+[node name="Icon" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_4fwbh")
+stretch_mode = 4
+script = ExtResource("1_rmb4a")

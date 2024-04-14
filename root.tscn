@@ -1,0 +1,431 @@
+[gd_scene load_steps=18 format=3 uid="uid://cg17f7lsch6c7"]
+
+[ext_resource type="Script" path="res://root.gd" id="1_k2w6u"]
+[ext_resource type="PackedScene" uid="uid://dqebxa0t04n3g" path="res://Player/player.tscn" id="1_xjaug"]
+[ext_resource type="Texture2D" uid="uid://uhbhucwxvk8p" path="res://room.png" id="2_kf8yy"]
+[ext_resource type="PackedScene" uid="uid://chk6d3vetlpu1" path="res://Items/item.tscn" id="2_lngeb"]
+[ext_resource type="PackedScene" uid="uid://mawv7tscprxy" path="res://Inputs/itemInput.tscn" id="5_7qj20"]
+[ext_resource type="PackedScene" uid="uid://by73u33g555di" path="res://Book/book.tscn" id="6_mta7o"]
+[ext_resource type="Texture2D" uid="uid://caxu0hnx10tth" path="res://wizard.png" id="7_0pcir"]
+[ext_resource type="AudioStream" uid="uid://cm4y8vn1nk40r" path="res://summon.wav" id="8_6ex2f"]
+[ext_resource type="AudioStream" uid="uid://dv32mxixvd6he" path="res://summon-fail.wav" id="9_dh3p7"]
+[ext_resource type="AudioStream" uid="uid://m61wxxku86b2" path="res://mix.wav" id="10_uuxdq"]
+[ext_resource type="AudioStream" uid="uid://mur7ufuwjvx4" path="res://throw-put-down.wav" id="11_wqhbp"]
+[ext_resource type="AudioStream" uid="uid://b2l47bjv5aqxu" path="res://music.mp3" id="12_j4dor"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m46yl"]
+size = Vector2(722, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sld4u"]
+size = Vector2(131, 539)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hb6s1"]
+size = Vector2(746, 124)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vir4h"]
+bg_color = Color(0.360784, 0.360784, 0.360784, 1)
+
+[sub_resource type="Gradient" id="Gradient_sgfq0"]
+offsets = PackedFloat32Array(0, 0.806667, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.75, 0, 1, 1, 1, 1, 1)
+
+[node name="Root" type="Node"]
+script = ExtResource("1_k2w6u")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -2
+offset_right = 720.0
+offset_bottom = 440.0
+texture = ExtResource("2_kf8yy")
+
+[node name="Player" parent="." instance=ExtResource("1_xjaug")]
+position = Vector2(250, 150)
+
+[node name="SpawnDustBlue" parent="." instance=ExtResource("2_lngeb")]
+position = Vector2(135, 65)
+spawn = true
+
+[node name="SpawnDustGreen" parent="." instance=ExtResource("2_lngeb")]
+position = Vector2(120, 104)
+type = 1
+spawn = true
+
+[node name="SpawnSpider" parent="." instance=ExtResource("2_lngeb")]
+position = Vector2(106, 143)
+type = 19
+spawn = true
+
+[node name="SpawnLizard" parent="." instance=ExtResource("2_lngeb")]
+position = Vector2(88, 187)
+type = 15
+spawn = true
+
+[node name="SpawnMushroom" parent="." instance=ExtResource("2_lngeb")]
+position = Vector2(77, 228)
+type = 16
+spawn = true
+
+[node name="SpawnFlaskRed" parent="." instance=ExtResource("2_lngeb")]
+position = Vector2(63, 276)
+type = 10
+spawn = true
+
+[node name="SpawnEyeRed" parent="." instance=ExtResource("2_lngeb")]
+position = Vector2(50, 320)
+type = 6
+spawn = true
+
+[node name="SpawnLeafGreen" parent="." instance=ExtResource("2_lngeb")]
+position = Vector2(40, 373)
+type = 13
+spawn = true
+
+[node name="SpawnFlaskYellow" parent="." instance=ExtResource("2_lngeb")]
+position = Vector2(115, 403)
+type = 11
+spawn = true
+
+[node name="SpawnFlaskBlue" parent="." instance=ExtResource("2_lngeb")]
+position = Vector2(200, 400)
+type = 7
+spawn = true
+
+[node name="WALLS" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WALLS"]
+position = Vector2(363, 34)
+shape = SubResource("RectangleShape2D_m46yl")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WALLS"]
+position = Vector2(789.5, 270.5)
+shape = SubResource("RectangleShape2D_sld4u")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WALLS"]
+position = Vector2(358, 502)
+shape = SubResource("RectangleShape2D_hb6s1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WALLS"]
+position = Vector2(-59, 2)
+polygon = PackedVector2Array(0, 0, 190, 0, 25, 540, 0, 540)
+
+[node name="ItemInputA" parent="." instance=ExtResource("5_7qj20")]
+position = Vector2(269, 63)
+type = 5
+
+[node name="ItemInputB" parent="." instance=ExtResource("5_7qj20")]
+position = Vector2(341, 63)
+type = 6
+
+[node name="ItemInputI" parent="." instance=ExtResource("5_7qj20")]
+position = Vector2(411, 266)
+
+[node name="ItemInputII" parent="." instance=ExtResource("5_7qj20")]
+position = Vector2(577, 267)
+type = 1
+
+[node name="ItemInputIII" parent="." instance=ExtResource("5_7qj20")]
+position = Vector2(642, 339)
+type = 2
+
+[node name="ItemInputIV" parent="." instance=ExtResource("5_7qj20")]
+position = Vector2(499, 384)
+type = 3
+
+[node name="ItemInputV" parent="." instance=ExtResource("5_7qj20")]
+position = Vector2(354, 339)
+type = 4
+
+[node name="Book" parent="." instance=ExtResource("6_mta7o")]
+
+[node name="GUI" type="HSplitContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 400
+
+[node name="CNT" type="CenterContainer" parent="GUI"]
+layout_mode = 2
+
+[node name="Summon" type="Panel" parent="GUI/CNT"]
+visible = false
+custom_minimum_size = Vector2(360, 160)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vir4h")
+
+[node name="Label" type="Label" parent="GUI/CNT/Summon"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="GUI/CNT/Summon"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Send it back!"
+
+[node name="Welcome" type="Panel" parent="GUI/CNT"]
+custom_minimum_size = Vector2(350, 340)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vir4h")
+
+[node name="Label" type="Label" parent="GUI/CNT/Welcome"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Ekhm.. Listen, the previous guy 
+dissapeared, died or whatever. 
+What is now important is that we 
+get back on track with our 
+summoning quota.
+We need a lot of them for some ... stuff.
+All right, over there you have some notes,
+hopefully you won't get squashed too soon.
+I mean you seem capable, so just 
+summon all of them.
+Oh yeah, if you're missing stuff
+ try the cauldron..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="GUI/CNT/Welcome"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Now get to work!"
+
+[node name="Win" type="Panel" parent="GUI/CNT"]
+visible = false
+custom_minimum_size = Vector2(240, 155)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vir4h")
+
+[node name="Label" type="Label" parent="GUI/CNT/Win"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "HAHAHA! NICE JOB!
+YOU SUMMONED THEM ALL 
+WITHOUT GETTING KILLED
+AND IT ONLY TOOK YOU"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="placeholder" type="MarginContainer" parent="GUI"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="GUI/placeholder"]
+z_index = 6
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_0pcir")
+stretch_mode = 4
+
+[node name="FIre" type="Node2D" parent="."]
+visible = false
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="FIre"]
+position = Vector2(500, 313)
+scale = Vector2(10, 10)
+amount = 32
+lifetime = 0.4
+lifetime_randomness = 0.33
+emission_shape = 3
+emission_rect_extents = Vector2(8, 8)
+direction = Vector2(-1, 0)
+spread = 90.0
+gravity = Vector2(0, -980)
+scale_amount_min = 0.5
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_sgfq0")
+
+[node name="CPUParticles2D6" type="CPUParticles2D" parent="FIre"]
+position = Vector2(355, 342)
+amount = 32
+lifetime = 0.4
+lifetime_randomness = 0.33
+emission_shape = 3
+emission_rect_extents = Vector2(8, 8)
+direction = Vector2(-1, 0)
+spread = 90.0
+gravity = Vector2(0, -980)
+scale_amount_min = 0.5
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_sgfq0")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="FIre"]
+position = Vector2(499, 382)
+amount = 32
+lifetime = 0.4
+lifetime_randomness = 0.33
+emission_shape = 3
+emission_rect_extents = Vector2(8, 8)
+direction = Vector2(-1, 0)
+spread = 90.0
+gravity = Vector2(0, -980)
+scale_amount_min = 0.5
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_sgfq0")
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="FIre"]
+position = Vector2(641, 339)
+amount = 32
+lifetime = 0.4
+lifetime_randomness = 0.33
+emission_shape = 3
+emission_rect_extents = Vector2(8, 8)
+direction = Vector2(-1, 0)
+spread = 90.0
+gravity = Vector2(0, -980)
+scale_amount_min = 0.5
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_sgfq0")
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="FIre"]
+position = Vector2(576, 268)
+amount = 32
+lifetime = 0.4
+lifetime_randomness = 0.33
+emission_shape = 3
+emission_rect_extents = Vector2(8, 8)
+direction = Vector2(-1, 0)
+spread = 90.0
+gravity = Vector2(0, -980)
+scale_amount_min = 0.5
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_sgfq0")
+
+[node name="CPUParticles2D5" type="CPUParticles2D" parent="FIre"]
+position = Vector2(411, 270)
+amount = 32
+lifetime = 0.4
+lifetime_randomness = 0.33
+emission_shape = 3
+emission_rect_extents = Vector2(8, 8)
+direction = Vector2(-1, 0)
+spread = 90.0
+gravity = Vector2(0, -980)
+scale_amount_min = 0.5
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_sgfq0")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 27.0
+offset_top = 461.0
+offset_right = 217.0
+offset_bottom = 535.0
+text = "Use arrow keys or WASD 
+to move around.
+Press `m` to toggle music."
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 258.0
+offset_top = 460.0
+offset_right = 448.0
+offset_bottom = 533.0
+text = "Press `space` or `e` 
+for interaction.
+Hold it to throw items!"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 497.0
+offset_top = 459.0
+offset_right = 687.0
+offset_bottom = 534.0
+text = "Ludum Dare 55 entry
+Theme: Summoning
+made by mikouaji"
+horizontal_alignment = 1
+
+[node name="Time" type="Label" parent="."]
+offset_left = 35.0
+offset_top = 26.0
+offset_right = 114.0
+offset_bottom = 59.0
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="SummonSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_6ex2f")
+volume_db = -4.0
+
+[node name="SummonSoundFail" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("9_dh3p7")
+volume_db = -4.0
+
+[node name="MixSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("10_uuxdq")
+volume_db = -4.0
+
+[node name="ThrowSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("11_wqhbp")
+volume_db = -10.0
+
+[node name="PickSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("11_wqhbp")
+volume_db = -10.0
+pitch_scale = 2.0
+
+[node name="Music" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("12_j4dor")
+volume_db = -2.0
+
+[connection signal="item_inputted" from="ItemInputA" to="." method="_on_item_input_item_inputted"]
+[connection signal="item_removed" from="ItemInputA" to="." method="_on_item_input_item_removed"]
+[connection signal="item_inputted" from="ItemInputB" to="." method="_on_item_input_item_inputted"]
+[connection signal="item_removed" from="ItemInputB" to="." method="_on_item_input_item_removed"]
+[connection signal="item_inputted" from="ItemInputI" to="." method="_on_item_input_item_inputted"]
+[connection signal="item_removed" from="ItemInputI" to="." method="_on_item_input_item_removed"]
+[connection signal="item_inputted" from="ItemInputII" to="." method="_on_item_input_item_inputted"]
+[connection signal="item_removed" from="ItemInputII" to="." method="_on_item_input_item_removed"]
+[connection signal="item_inputted" from="ItemInputIII" to="." method="_on_item_input_item_inputted"]
+[connection signal="item_removed" from="ItemInputIII" to="." method="_on_item_input_item_removed"]
+[connection signal="item_inputted" from="ItemInputIV" to="." method="_on_item_input_item_inputted"]
+[connection signal="item_removed" from="ItemInputIV" to="." method="_on_item_input_item_removed"]
+[connection signal="item_inputted" from="ItemInputV" to="." method="_on_item_input_item_inputted"]
+[connection signal="item_removed" from="ItemInputV" to="." method="_on_item_input_item_removed"]
+[connection signal="pressed" from="GUI/CNT/Summon/Button" to="." method="_on_summon_pressed"]
+[connection signal="pressed" from="GUI/CNT/Welcome/Button" to="." method="_on_start_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="Sounds/Music" to="." method="_on_music_finished"]
